@@ -1,0 +1,275 @@
+/* Animated Background */
+body.default {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.5s ease-in-out;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #74ebd5, #ACB6E5, #f8b500, #fceabb);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.container {
+    text-align: center;
+    z-index: 2;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    max-width: 90%;
+}
+
+#weather-info {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    animation: fadeInUpCard 1s ease forwards;
+    color: #000;
+}
+
+@keyframes fadeInUpCard {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.intro-message {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    color: white;
+    text-align: center;
+    animation: introFade 2s ease;
+    z-index: 1;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    transition: opacity 0.8s ease;
+}
+
+@keyframes introFade {
+    0% { opacity: 0; transform: translate(-50%, -60%); }
+    50% { opacity: 1; transform: translate(-50%, -50%); }
+    100% { opacity: 0.9; }
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.default {
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+.card {
+    animation: popIn 0.6s ease;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Weather-specific styles */
+.sunny {
+    background: linear-gradient(to top, #fceabb, #f8b500);
+}
+
+.night {
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+}
+
+.cloudy-day {
+    background: linear-gradient(to right, #bdc3c7, #2c3e50);
+}
+
+.rainy-day {
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+}
+
+.thunder-day {
+    background: linear-gradient(to right, #373B44, #4286f4);
+}
+
+.snow-day {
+    background: linear-gradient(to right, #e6dada, #274046);
+}
+
+.misty {
+    background: linear-gradient(to top, #606c88, #3f4c6b);
+}
+
+.hazy {
+    background: linear-gradient(to right, #3e5151, #decba4);
+}
+
+.drizzle {
+    background: linear-gradient(to right, #89f7fe, #66a6ff);
+}
+
+.cloudy-night {
+    background: linear-gradient(to bottom, #2C3E50, #4CA1AF);
+}
+
+.rainy-night {
+    background: linear-gradient(to bottom, #000046, #1CB5E0);
+}
+
+.thunder-night {
+    background: linear-gradient(to right, #232526, #414345);
+}
+
+.snow-night {
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+
+/* Additional visual elements */
+.sun, .moon, .stars, .cloud {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.sun {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    top: 10%;
+    right: 10%;
+    animation: rotateSun 20s linear infinite;
+}
+
+@keyframes rotateSun {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.moon {
+    width: 80px;
+    height: 80px;
+    background: url('moon.png') no-repeat center center;
+    background-size: contain;
+    top: 10%;
+    right: 10%;
+}
+
+.stars {
+    width: 100%;
+    height: 100%;
+    background: url('stars.png') repeat;
+    opacity: 0.6;
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.cloud {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: -30px 20px 0 5px #fff, 30px 20px 0 5px #fff;
+    opacity: 0.8;
+    animation: floatClouds 60s linear infinite;
+}
+
+.cloud.small {
+    width: 60px;
+    height: 60px;
+    top: 100px;
+}
+
+.cloud.medium {
+    width: 100px;
+    height: 100px;
+    top: 150px;
+}
+
+.cloud.large {
+    width: 150px;
+    height: 150px;
+    top: 200px;
+}
+
+@keyframes floatClouds {
+    0% {
+        left: -200px;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+.flash {
+    animation: lightningFlash 1s infinite;
+}
+
+@keyframes lightningFlash {
+    0%, 20%, 40% { background-color: rgba(255, 255, 255, 0.6); }
+    10%, 30%, 50%, 100% { background-color: transparent; }
+}
