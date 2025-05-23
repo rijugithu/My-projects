@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Whiz</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1><strong>Weather App</strong></h1>
+
+    <div id="intro" class="intro-message">
+      Welcome to <strong>Weather Whiz!</strong> ☁️ ☁️ ☀️ ☁️<br />
+      <small>Search any city to explore live weather conditions.</small>
+    </div>
+
+    <form id="weather-form">
+      <input type="text" id="city" placeholder="Enter city name" required />
+      <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="weather-info"></div>
+  </div>
+
+  <!-- Visual container for background elements -->
+  <div id="visuals"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
